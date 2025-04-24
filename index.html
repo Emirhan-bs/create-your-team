@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Takımını Kur</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="first">
+        <input type="text" id="name-input" placeholder="İsim girin" />
+        <select id="skill-select">
+          <option value="4">Çok iyi</option>
+          <option value="3">İyi</option>
+          <option value="2">Orta</option>
+          <option value="GK">Kaleci</option>
+        </select>
+        <button class="first-button" onclick="addPlayer()">Ekle</button>
+      </div>
+
+      <div class="second">
+        <label class="team-size-first" for="team-size"
+          >Takım Büyüklüğü: <span id="team-size-label">7</span></label
+        >
+        <input
+          class="second-input"
+          type="number"
+          id="team-size"
+          min="7"
+          max="10"
+          value="7"
+          oninput="updateLabel(this.value)"
+        />
+      </div>
+      <div class="thirt">
+        <h2 class="thirt-title">Kişilerin isimleri</h2>
+        <ul id="player-list"></ul>
+        <button class="thirt-button" onclick="createBalancedTeams()">
+          Takımları Oluştur
+        </button>
+        <div id="teams-output"></div>
+      </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
