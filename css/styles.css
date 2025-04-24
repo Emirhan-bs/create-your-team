@@ -251,11 +251,8 @@ select {
     background-position: inherit;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    max-width: 390px;
   }
-  .container-body {
-    max-width: 360px;
-  }
+
   .main {
     padding: 10px;
     max-width: 390px;
