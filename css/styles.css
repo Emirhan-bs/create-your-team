@@ -248,7 +248,7 @@ select {
     height: auto;
     background-image: url(../img/pexels-markusspiske-114296.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: inherit;
     background-repeat: no-repeat;
     background-attachment: fixed;
     max-width: 390px;
