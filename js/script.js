@@ -4,35 +4,17 @@ function updateLabel(val) {
   document.getElementById("team-size-label").textContent = val;
 }
 
-function addPlayer() {
-  const name = document.getElementById("name-input").value.trim();
-  const skill = document.getElementById("skill-select").value;
-
-  if (!name) return alert("İsim girilmeli.");
-  players.push({ name, skill });
-  document.getElementById("name-input").value = "";
-  displayPlayers();
-}
-
-function displayPlayers() {
-  const list = document.getElementById("player-list");
-  list.innerHTML = players
-    .map((p) => `<li>${p.name} - ${skillLabel(p.skill)}</li>`)
-    .join("");
-}
-
-function skillLabel(skill) {
-  const labels = { 4: "Çok iyi", 3: "İyi", 2: "Orta", 1: "Kötü", GK: "Kaleci" };
-  return labels[skill] || "Bilinmiyor";
-}
-
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
 }
 
 function createBalancedTeams() {
-  const teamSize = parseInt(document.getElementById("team-size").value);
-  const totalTeams = Math.ceil(players.length / teamSize);
+  if (players.length % 2 !== 0) {
+    alert("Kişi sayısı eksik ya da fazla!!!");
+    return;
+  }
+  const totalTeams = 2;
+  const teamSize = Math.ceil(players.length / totalTeams);
   const teams = Array.from({ length: totalTeams }, () => []);
 
   // Gruplara ayır
@@ -110,7 +92,13 @@ function removePlayer(index) {
   displayPlayers();
 }
 function skillLabel(skill) {
-  const labels = { 4: "Çok iyi", 3: "İyi", 2: "Orta", GK: "Kaleci" };
+  const labels = {
+    4: "Forvet",
+    3: "Kanat",
+    2: "Orta Saha",
+    1: "Defans",
+    GK: "Kaleci",
+  };
   return labels[skill] || "Bilinmiyor";
 }
 document.getElementById("name-input").addEventListener("keydown", function (e) {
