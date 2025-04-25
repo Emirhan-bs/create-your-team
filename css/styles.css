@@ -298,4 +298,7 @@ select {
     gap: 60px;
     font-size: 20px;
   }
+  #teams-output li {
+    font-size: 16px;
+  }
 }
